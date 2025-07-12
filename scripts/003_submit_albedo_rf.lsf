@@ -1,0 +1,21 @@
+#!/bin/bash
+#BSUB -J albedo_rf                                  # 作业名称
+#BSUB -q cweg                                       # 指定队列
+#BSUB -n 14                                        # 使用14个核心
+#BSUB -m "cn12"                                     # 关键：指定目标节点 (改为实际节点名)
+#BSUB -o %J.stdout                    # 标准输出文件
+#BSUB -e %J.stderr                    # 标准错误文件      
+
+
+# 显示作业信息
+echo "=== LSF JOB SETTINGS ==="
+echo "Job ID: $LSB_JOBID"
+echo "Job name: $LSB_JOBNAME"
+echo "Queue: $LSB_QUEUE"
+echo "Nodes: $LSB_HOSTS"
+
+# 执行实际任务
+echo -e "\n=== EXECUTING MAIN JOB SCRIPT ==="
+
+cd /home/ninglk/Chooyu/1_albedo/2Apr25/scripts
+python 003_albedo_rf.py 
